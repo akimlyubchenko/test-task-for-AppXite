@@ -1,2 +1,2 @@
-export * from "./useSaveConfiguration";
-export * from "./useUpdateConfiguration";
+export * from "./useChangeConfiguration";
+export * from "./useOpenPriceEditor";

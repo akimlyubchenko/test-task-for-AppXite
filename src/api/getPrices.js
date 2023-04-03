@@ -7,7 +7,7 @@ export const getPrices = () => {
       industry: "education",
       customer: "She",
       currency: "EUR",
-      acctivationDate: new Date().toLocaleDateString(),
+      activationDate: new Date().toLocaleDateString(),
       quantity: 1,
     },
     {
@@ -15,7 +15,7 @@ export const getPrices = () => {
       industry: "Market",
       customer: "He",
       currency: "USD",
-      acctivationDate: new Date().toLocaleDateString(),
+      activationDate: new Date().toLocaleDateString(),
       quantity: 2,
     },
   ];

@@ -1,8 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useSaveConfiguration, useUpdateConfiguration } from "../../hooks";
+import { useSetRecoilState } from "recoil";
+import { useChangeConfiguration } from "../../hooks";
+import { popupState } from "../../store";
 
 export const UpdatePriceConfiguration = ({ activeConfiguration }) => {
+  const setPopupStatus = useSetRecoilState(popupState);
   const { register, handleSubmit } = useForm({
     defaultValues: {
       industry: activeConfiguration?.industry,
@@ -10,15 +13,16 @@ export const UpdatePriceConfiguration = ({ activeConfiguration }) => {
       country: activeConfiguration?.country,
       currency: activeConfiguration?.currency,
       activationDate: activeConfiguration?.activationDate,
-    }
+      id: activeConfiguration?.id,
+    },
   });
-  const saveConfiguration = useSaveConfiguration();
-  const updateConfiguration = useUpdateConfiguration();
+
+  const { updateConfiguration, saveConfiguration } = useChangeConfiguration();
 
   const handleConfigurationSubmit = (payload) => {
-    payload.id
-      ? updateConfiguration(payload)
-      : saveConfiguration(payload);
+    payload.id ? updateConfiguration(payload) : saveConfiguration(payload);
+
+    setPopupStatus(false);
   };
 
   return (
@@ -31,12 +35,7 @@ export const UpdatePriceConfiguration = ({ activeConfiguration }) => {
         <input {...register("country")} placeholder="country" />
         <input {...register("currency")} placeholder="currency" />
         <input {...register("activationDate")} placeholder="activationDate" />
-        {/* <select {...register("category", { required: true })}>
-          <option value="">Select...</option>
-          <option value="A">Option A</option>
-          <option value="B">Option B</option>
-        </select>
-        <p>{configurationDetails}</p> */}
+
         <input type="submit" />
       </form>
     </>

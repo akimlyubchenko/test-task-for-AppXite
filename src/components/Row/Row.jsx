@@ -1,19 +1,27 @@
 import React from "react";
+import { useChangeConfiguration, useOpenPriceEditor } from "../../hooks";
 
 export const Row = ({ rowDetails }) => {
+  const openEditor = useOpenPriceEditor();
+  const { removeConfiguration } = useChangeConfiguration();
+
   const handleUpdate = () => {
-    // call method from hook that opens popup with the payload
+    openEditor(rowDetails);
+  };
+
+  const handleRemove = () => {
+    removeConfiguration(rowDetails.id)
   }
 
   return (
     <div>
       <span>Icon</span>
       <p>{rowDetails.country}</p>
-      <span>{rowDetails.currency}</span>
-      <span>{rowDetails.acctivationDate}</span>
+      <p>{rowDetails.currency}</p>
+      <p>{rowDetails.activationDate}</p>
 
-      <button>Update</button>
-      <button onClick={handleUpdate}>Remove</button>
+      <button onClick={handleUpdate}>Update</button>
+      <button onClick={handleRemove}>Remove</button>
     </div>
   );
 };
