@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { activeProceConfigurationState } from "../../store";
+import { activePriceConfigurationState } from "../../store";
 import { UpdatePriceConfiguration } from "../UpdatePriceConfiguration";
 
 export const PriceConfigurationEditorPopup = () => {
   const [ activeConfiguration, setActiveConfiguration ] = useRecoilState(
-    activeProceConfigurationState
+    activePriceConfigurationState
   );
 
   useEffect(() => {

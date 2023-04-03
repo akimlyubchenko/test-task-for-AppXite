@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export const activeProceConfigurationState = atom({
-  key: "activeProceConfigurationState",
+export const activePriceConfigurationState = atom({
+  key: "activePriceConfigurationState",
   default: {},
 });
