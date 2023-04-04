@@ -1,0 +1,15 @@
+.configuration-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  height: 40px;
+
+  &__info {
+    display: flex;
+    gap: 3px;
+    border-bottom: 1px solid #949494c6;
+    padding-bottom: 5px;
+    padding-right: 60px;
+    width: 100%;
+  }
+}
