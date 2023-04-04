@@ -11,8 +11,6 @@ export default function App() {
     <RecoilRoot>
       <PriceConfigurationEditorPopup />
       <CreateNewBtn />
-      <br />
-      <br />
 
       <PriceConfigurationsContainer />
     </RecoilRoot>
